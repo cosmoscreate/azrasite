@@ -1,0 +1,6 @@
+{
+  "framework": null,
+  "buildCommand": "echo \"Statik site — ayrı bir build adımı gerekmiyor.\"",
+  "outputDirectory": ".",
+  "trailingSlash": false
+}
