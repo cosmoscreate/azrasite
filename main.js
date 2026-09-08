@@ -232,6 +232,90 @@
     });
   }
 
+  /* ---------------- magazine reader (Çalışmalar) ---------------- */
+  var MAGAZINES = {
+    "pusula-2": { title: "Pusula", issue: "İkinci Sayı — Nisan 2025", pages: 24 },
+    "pusula-3": { title: "Pusula", issue: "Üçüncü Sayı — Mayıs 2025", pages: 24 },
+    "pusula-4": { title: "Pusula", issue: "Dördüncü Sayı", pages: 32 },
+    "maypa-1": { title: "Maypa", issue: "1. Sayı — Ağustos 2026", pages: 34 },
+    "dusart-7": { title: "DüşArt", issue: "7. Sayı — Aralık 2024", pages: 64 },
+    "dusart-9": { title: "DüşArt", issue: "9. Sayı — Şubat 2025", pages: 58 }
+  };
+
+  var readerTriggers = document.querySelectorAll("[data-reader-open]");
+  var reader = document.querySelector("[data-reader-overlay]");
+  if (reader && readerTriggers.length) {
+    var rImg = reader.querySelector("[data-reader-img]");
+    var rMag = reader.querySelector("[data-reader-mag]");
+    var rIssue = reader.querySelector("[data-reader-issue]");
+    var rCurrent = reader.querySelector("[data-reader-current]");
+    var rTotal = reader.querySelector("[data-reader-total]");
+    var rPrev = reader.querySelector("[data-reader-prev]");
+    var rNext = reader.querySelector("[data-reader-next]");
+    var rClose = reader.querySelector("[data-reader-close]");
+
+    var currentSlug = null;
+    var currentPage = 1;
+    var totalPages = 1;
+
+    function pagePath(slug, n) {
+      var nn = n < 10 ? "0" + n : "" + n;
+      return "images/dergiler/" + slug + "/page-" + nn + ".jpg";
+    }
+
+    function renderReaderPage() {
+      rImg.classList.add("is-turning");
+      setTimeout(function () {
+        rImg.src = pagePath(currentSlug, currentPage);
+        rImg.alt = rMag.textContent + " — sayfa " + currentPage;
+        rImg.classList.remove("is-turning");
+      }, 140);
+      rCurrent.textContent = currentPage;
+      rPrev.disabled = currentPage <= 1;
+      rNext.disabled = currentPage >= totalPages;
+      if (currentPage < totalPages) { var nextImg = new Image(); nextImg.src = pagePath(currentSlug, currentPage + 1); }
+      if (currentPage > 1) { var prevImg = new Image(); prevImg.src = pagePath(currentSlug, currentPage - 1); }
+    }
+
+    function openReader(slug) {
+      var mag = MAGAZINES[slug];
+      if (!mag) return;
+      currentSlug = slug;
+      currentPage = 1;
+      totalPages = mag.pages;
+      rMag.textContent = mag.title;
+      rIssue.textContent = mag.issue;
+      rTotal.textContent = totalPages;
+      renderReaderPage();
+      reader.classList.add("is-open");
+      document.body.classList.add("no-scroll");
+    }
+    function closeReader() {
+      reader.classList.remove("is-open");
+      document.body.classList.remove("no-scroll");
+    }
+    function readerGoPrev() { if (currentPage > 1) { currentPage--; renderReaderPage(); } }
+    function readerGoNext() { if (currentPage < totalPages) { currentPage++; renderReaderPage(); } }
+
+    readerTriggers.forEach(function (trigger) {
+      trigger.addEventListener("click", function () {
+        openReader(trigger.getAttribute("data-magazine"));
+      });
+    });
+    if (rClose) rClose.addEventListener("click", closeReader);
+    if (rPrev) rPrev.addEventListener("click", readerGoPrev);
+    if (rNext) rNext.addEventListener("click", readerGoNext);
+    reader.addEventListener("click", function (e) {
+      if (e.target === reader) closeReader();
+    });
+    document.addEventListener("keydown", function (e) {
+      if (!reader.classList.contains("is-open")) return;
+      if (e.key === "Escape") closeReader();
+      if (e.key === "ArrowLeft") readerGoPrev();
+      if (e.key === "ArrowRight") readerGoNext();
+    });
+  }
+
   /* ---------------- custom podcast player ---------------- */
   function formatTime(sec) {
     if (!isFinite(sec)) return "0:00";

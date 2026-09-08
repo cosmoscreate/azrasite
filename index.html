@@ -344,26 +344,20 @@
     <div class="container">
       <div class="section-kicker"><span>Çalışmalarım</span><span class="num">07</span></div>
       <h2 class="section-title reveal">Dergiler ve <em>Yön Verdiğim İşler</em></h2>
-      <p class="section-note reveal" style="margin-top:.6em; margin-bottom: var(--sp-5);">Katkıda bulunduğum yayınlar ve fikir ya da yaratıcı yön verdiğim projelerden bir seçki.</p>
+      <p class="section-note reveal" style="margin-top:.6em; margin-bottom: var(--sp-5);">Katkıda bulunduğum dergi sayılarından bir seçki. Bir kapağa dokunun, sitenin içinde okuyun.</p>
 
-      <div class="works-grid">
-        <div class="work-card reveal">
-          <span class="role">Dergi — Yer Tutucu</span>
-          <h3>Proje Başlığı — Yer Tutucu 1</h3>
-          <p>[Proje açıklaması için yer tutucu metin.]</p>
-          <span class="year">Yıl eklenecek</span>
+      <div class="plates">
+        <div class="plate span-2" data-reader-open data-magazine="pusula-2">
+          <img src="images/dergiler/pusula-2/page-01.jpg" alt="Pusula, İkinci Sayı — Nisan 2025 kapağı">
+          <div class="tag">Pusula — İkinci Sayı</div>
         </div>
-        <div class="work-card reveal reveal-delay-1">
-          <span class="role">Yaratıcı Yön Verme — Yer Tutucu</span>
-          <h3>Proje Başlığı — Yer Tutucu 2</h3>
-          <p>[Proje açıklaması için yer tutucu metin.]</p>
-          <span class="year">Yıl eklenecek</span>
+        <div class="plate span-2" data-reader-open data-magazine="maypa-1">
+          <img src="images/dergiler/maypa-1/page-01.jpg" alt="Maypa, 1. Sayı — Ağustos 2026 kapağı">
+          <div class="tag">Maypa — 1. Sayı</div>
         </div>
-        <div class="work-card reveal reveal-delay-2">
-          <span class="role">Konsept Geliştirme — Yer Tutucu</span>
-          <h3>Proje Başlığı — Yer Tutucu 3</h3>
-          <p>[Proje açıklaması için yer tutucu metin.]</p>
-          <span class="year">Yıl eklenecek</span>
+        <div class="plate span-2" data-reader-open data-magazine="dusart-9">
+          <img src="images/dergiler/dusart-9/page-01.jpg" alt="DüşArt, 9. Sayı — Şubat 2025 kapağı">
+          <div class="tag">DüşArt — 9. Sayı</div>
         </div>
       </div>
 
@@ -484,6 +478,24 @@
   </section>
 
 </main>
+
+<div class="reader-overlay" data-reader-overlay>
+  <div class="reader-head">
+    <div class="reader-titles">
+      <span class="reader-mag" data-reader-mag></span>
+      <span class="reader-issue" data-reader-issue></span>
+    </div>
+    <div class="reader-page-indicator"><span data-reader-current></span> / <span data-reader-total></span></div>
+    <button class="reader-close" data-reader-close aria-label="Kapat">Kapat ✕</button>
+  </div>
+  <div class="reader-stage">
+    <button class="reader-nav reader-prev" data-reader-prev aria-label="Önceki sayfa">‹</button>
+    <div class="reader-page-wrap">
+      <img class="reader-page" data-reader-img src="" alt="">
+    </div>
+    <button class="reader-nav reader-next" data-reader-next aria-label="Sonraki sayfa">›</button>
+  </div>
+</div>
 
 <footer class="site-footer">
   <div class="container footer-row">

@@ -533,6 +533,50 @@ body::after{
 .lightbox-cap .m{ font-family: var(--font-hand); font-size: 1.1rem; color: var(--parchment); margin-top:.4em; }
 .lightbox-close{ position:absolute; top: var(--sp-4); right: var(--sp-4); color: var(--lit); font-family: var(--font-sans); font-size:.68rem; letter-spacing:.05em; text-transform:uppercase; }
 
+/* ================================================================ READER — a magazine read page by page, in the dark room */
+.reader-overlay{
+  position: fixed; inset:0; z-index:950;
+  background:
+    radial-gradient(ellipse 700px 500px at 50% 15%, rgba(248,240,227,.06), transparent 60%),
+    linear-gradient(180deg, var(--env-0), var(--env-1));
+  display:flex; flex-direction:column;
+  opacity:0; visibility:hidden; pointer-events:none;
+  transition: opacity .45s var(--ease), visibility 0s linear .45s;
+}
+.reader-overlay.is-open{ opacity:1; visibility:visible; pointer-events:auto; transition: opacity .45s var(--ease), visibility 0s linear 0s; }
+.reader-head{
+  flex-shrink:0; display:flex; align-items:center; justify-content:space-between; gap: var(--sp-4);
+  padding: var(--sp-3) var(--sp-4); border-bottom: 1px solid var(--env-line-strong);
+}
+.reader-titles{ display:flex; flex-direction:column; min-width:0; }
+.reader-mag{ font-family: var(--font-display); font-style:italic; font-size: clamp(1.1rem,2.6vw,1.5rem); color: var(--lit); }
+.reader-issue{ font-family: var(--font-sans); font-size:.64rem; letter-spacing:.05em; text-transform:uppercase; color: var(--lit-faint); margin-top:.2em; }
+.reader-page-indicator{ font-family: var(--font-sans); font-size:.7rem; letter-spacing:.04em; color: var(--lit-faint); white-space:nowrap; }
+.reader-close{ color: var(--lit); font-family: var(--font-sans); font-size:.68rem; letter-spacing:.05em; text-transform:uppercase; flex-shrink:0; }
+.reader-close:hover{ color: var(--parchment); }
+.reader-stage{ flex:1; min-height:0; display:flex; align-items:center; justify-content:center; gap: var(--sp-3); padding: var(--sp-3) var(--sp-4); }
+.reader-page-wrap{ height:100%; display:flex; align-items:center; justify-content:center; min-width:0; }
+.reader-page{
+  max-height: calc(100vh - 140px); max-width: min(760px, 86vw); width:auto; height:auto;
+  border: 6px solid var(--paper); box-shadow: 0 40px 90px -20px rgba(0,0,0,.7), 0 1px 0 rgba(255,255,255,.5) inset;
+  opacity:1; transition: opacity .22s var(--ease);
+  background: var(--paper);
+}
+.reader-page.is-turning{ opacity:0; }
+.reader-nav{
+  flex-shrink:0; width:48px; height:48px; border-radius:50%; border:1px solid var(--lit-soft); color: var(--lit);
+  display:flex; align-items:center; justify-content:center; font-family: var(--font-display); font-size:1.6rem;
+  transition: background-color .2s var(--ease), color .2s var(--ease), opacity .2s var(--ease);
+}
+.reader-nav:hover{ background: var(--lit); color: var(--env-1); }
+.reader-nav:disabled{ opacity:.25; pointer-events:none; }
+@media (max-width: 700px){
+  .reader-head{ padding: var(--sp-2) var(--sp-3); flex-wrap:wrap; }
+  .reader-stage{ padding: var(--sp-2); gap: var(--sp-2); }
+  .reader-nav{ width:38px; height:38px; font-size:1.2rem; }
+  .reader-page{ max-height: calc(100vh - 170px); }
+}
+
 /* ================================================================ BOOKS — a shelf against a dark wall */
 .shelf{ border-top: 2px solid var(--lit-soft); }
 .shelf-row{ display:grid; grid-template-columns: 210px 1fr auto; gap: var(--sp-5); align-items:center; padding: var(--sp-5) 0; border-bottom: 1px dashed var(--env-line-strong); }
