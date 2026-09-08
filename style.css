@@ -557,7 +557,7 @@ body::after{
 .reader-stage{ flex:1; min-height:0; display:flex; align-items:center; justify-content:center; gap: var(--sp-3); padding: var(--sp-3) var(--sp-4); }
 .reader-page-wrap{ height:100%; display:flex; align-items:center; justify-content:center; min-width:0; }
 .reader-page{
-  max-height: calc(100vh - 140px); max-width: min(760px, 86vw); width:auto; height:auto;
+  max-height: 100%; max-width: min(760px, 86vw); width:auto; height:auto;
   border: 6px solid var(--paper); box-shadow: 0 40px 90px -20px rgba(0,0,0,.7), 0 1px 0 rgba(255,255,255,.5) inset;
   opacity:1; transition: opacity .22s var(--ease);
   background: var(--paper);
@@ -578,7 +578,8 @@ body::after{
   .reader-head{ padding: var(--sp-2) var(--sp-3); flex-wrap:wrap; }
   .reader-stage{ padding: var(--sp-2); gap: var(--sp-2); }
   .reader-nav{ width:38px; height:38px; font-size:1.2rem; }
-  .reader-page{ max-height: calc(100vh - 170px); }
+  .reader-foot{ padding: var(--sp-2) var(--sp-3) var(--sp-2); }
+  .reader-foot p{ font-size:.62rem; line-height:1.5; }
 }
 
 /* ================================================================ BOOKS — a shelf against a dark wall */
