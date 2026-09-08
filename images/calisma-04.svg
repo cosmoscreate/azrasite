@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1120">
+<rect width="900" height="1120" fill="#150701"/>
+<filter id="g4"><feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" seed="44"/><feColorMatrix type="saturate" values="0"/></filter>
+<rect width="900" height="1120" filter="url(#g4)" opacity="0.05"/>
+<text x="450" y="220" text-anchor="middle" font-family="Georgia, serif" font-style="italic" font-size="80" fill="#F8F0E3">Rıhtım</text>
+<text x="450" y="270" text-anchor="middle" font-family="Georgia, serif" font-size="24" letter-spacing="8" fill="#D8C4A9">KÜLTÜR SANAT · SAYI 07</text>
+<path d="M150 420 Q 450 340 750 420 L 750 700 Q 450 800 150 700 Z" fill="#C7A876" opacity="0.32"/>
+<path d="M150 560 Q 450 500 750 560 L 750 820 Q 450 900 150 820 Z" fill="#7C2836" opacity="0.45"/>
+<rect x="150" y="940" width="600" height="1.5" fill="#F8F0E3" opacity="0.5"/>
+<text x="450" y="1000" text-anchor="middle" font-family="Georgia, serif" font-size="24" fill="#D8C4A9">Dosya: "Sessizlik Üzerine"</text>
+</svg>

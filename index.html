@@ -6,16 +6,24 @@
 <title>Azra Bostancı — Yazar, Şair, Podcast, Ressam</title>
 <meta name="description" content="Azra Bostancı'nın kişisel arşivi: yazılar, şiirler, Mürekkep Saatleri podcast'i, resimler ve kitap notları.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="icon" href="favicon.svg">
+<link rel="icon" href="favicon.png">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <header class="site-header">
-  <a class="brand" href="index.html">Azra Bostancı<small>Yazar · Şair · Podcast · Ressam</small></a>
-  <button class="menu-toggle" data-nav-toggle aria-expanded="false" aria-controls="site-nav" aria-label="Menüyü aç veya kapat">
-    Menü <span class="bars"><span></span><span></span><span></span></span>
-  </button>
+  <a class="brand" href="index.html">
+    <img class="brand-mark" src="images/logo-mark.png" alt="" aria-hidden="true">
+    <span class="brand-text">Azra Bostancı<small>Çalışmalar · Yazılar · Şiirler · Podcastler · Resimler · Kitaplar</small></span>
+  </a>
+  <div class="header-actions">
+    <button class="search-toggle" data-search-toggle aria-expanded="false" aria-controls="site-search" aria-label="Aramayı aç veya kapat">
+      <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><circle cx="8.5" cy="8.5" r="6"/><path d="M13.2 13.2 18 18"/></svg>
+    </button>
+    <button class="menu-toggle" data-nav-toggle aria-expanded="false" aria-controls="site-nav" aria-label="Menüyü aç veya kapat">
+      Menü <span class="bars"><span></span><span></span><span></span></span>
+    </button>
+  </div>
 </header>
 
 <nav class="site-nav" id="site-nav" aria-label="Ana gezinme">
@@ -25,9 +33,11 @@
     <li><a href="hakkinda.html">Hakkında</a></li>
     <li><a href="yazilar.html">Yazılar</a></li>
     <li><a href="siirler.html">Şiirler</a></li>
-    <li><a href="podcast.html">Podcast</a></li>
+    <li><a href="podcast.html">Podcastler</a></li>
     <li><a href="resimler.html">Resimler</a></li>
     <li><a href="kitaplar.html">Kitaplar</a></li>
+    <li><a href="calismalarim.html">Çalışmalar</a></li>
+    <li><a href="benimle-calisin.html">Benimle Çalışın</a></li>
     <li><a href="iletisim.html">İletişim</a></li>
   </ul>
   <div class="site-nav-foot">
@@ -60,7 +70,7 @@
             <path d="M41 133 Q50 140 59 133" stroke-width="0.9"/>
           </svg>
           <div class="roles">
-            <span>Yazar</span><span>Şair</span><span>Podcast</span><span>Ressam</span>
+            <span>Çalışmalar</span><span>Yazılar</span><span>Şiirler</span><span>Podcastler</span><span>Resimler</span><span>Kitaplar</span>
           </div>
         </div>
       </div>
@@ -102,13 +112,23 @@
             </li>
             <li class="contents-row">
               <span class="no">06</span>
-              <div class="label-col"><a class="title" href="hakkinda.html">Hakkında</a><span class="leader"></span></div>
+              <div class="label-col"><a class="title" href="calismalarim.html">Çalışmalar</a><span class="leader"></span></div>
               <span class="ref">Sayfa 07</span>
             </li>
             <li class="contents-row">
               <span class="no">07</span>
-              <div class="label-col"><a class="title" href="iletisim.html">İletişim</a><span class="leader"></span></div>
+              <div class="label-col"><a class="title" href="hakkinda.html">Hakkında</a><span class="leader"></span></div>
               <span class="ref">Sayfa 08</span>
+            </li>
+            <li class="contents-row">
+              <span class="no">08</span>
+              <div class="label-col"><a class="title" href="benimle-calisin.html">Benimle Çalışın</a><span class="leader"></span></div>
+              <span class="ref">Sayfa 09</span>
+            </li>
+            <li class="contents-row">
+              <span class="no">09</span>
+              <div class="label-col"><a class="title" href="iletisim.html">İletişim</a><span class="leader"></span></div>
+              <span class="ref">Sayfa 10</span>
             </li>
           </ul>
         </div>
@@ -306,6 +326,40 @@
     <svg viewBox="0 0 64 16" fill="none" stroke="currentColor" stroke-width="1"><path d="M2 8 Q16 2 28 8"/><path d="M2 8 Q16 14 28 8"/><circle cx="32" cy="8" r="2.2" fill="currentColor" stroke="none"/><path d="M62 8 Q48 2 36 8"/><path d="M62 8 Q48 14 36 8"/></svg>
   </div>
 
+  <!-- ============================================================ ÇALIŞMALARIM (magazines + creative-direction teaser) -->
+  <section class="section section-tight" id="calismalar">
+    <div class="container">
+      <div class="section-kicker"><span>Çalışmalarım</span><span class="num">07</span></div>
+      <h2 class="section-title reveal">Dergiler ve <em>Yön Verdiğim İşler</em></h2>
+      <p class="section-note reveal" style="margin-top:.6em; margin-bottom: var(--sp-5);">Katkıda bulunduğum yayınlar ve fikir ya da yaratıcı yön verdiğim projelerden bir seçki.</p>
+
+      <div class="works-grid">
+        <div class="work-card reveal">
+          <span class="role">Dergi</span>
+          <h3>Kırağı Dergisi — Sayı 12</h3>
+          <p>Konuk yazar, "Mürekkep ve Sabır" başlıklı deneme.</p>
+          <span class="year">2025</span>
+        </div>
+        <div class="work-card reveal reveal-delay-1">
+          <span class="role">Yaratıcı Yön Verme</span>
+          <h3>Zarf — Küçük Yayın Kolektifi</h3>
+          <p>Bağımsız bir şiir fanzininin görsel kimliğine ve sayı temalarına danışmanlık.</p>
+          <span class="year">2025 — devam ediyor</span>
+        </div>
+        <div class="work-card reveal reveal-delay-2">
+          <span class="role">Konsept Geliştirme</span>
+          <h3>"Sessiz Oda" Sergi Programı</h3>
+          <p>Beş ressamın bir araya geldiği grup sergisinin kavramsal çerçevesini kurduk.</p>
+          <span class="year">2024</span>
+        </div>
+      </div>
+
+      <div class="reveal" style="margin-top: var(--sp-5);">
+        <a class="btn" href="calismalarim.html">Tüm Çalışmaları Gör</a>
+      </div>
+    </div>
+  </section>
+
   <!-- ============================================================ HAKKINDA (biography teaser) -->
   <section class="section section-tight biography" id="hakkinda">
     <div class="container bio-grid">
@@ -325,10 +379,45 @@
         </div>
       </figure>
       <div class="reveal reveal-delay-1">
-        <div class="section-kicker"><span>Hakkında</span><span class="num">07</span></div>
+        <div class="section-kicker"><span>Hakkında</span><span class="num">08</span></div>
         <p class="bio-copy" style="font-family:var(--font-serif); font-size:1.3rem; font-style:italic; color:var(--ink);">Yazıyorum, çiziyorum ve zaman zaman bunları birine anlatmak için kayıt düğmesine basıyorum.</p>
         <p style="max-width: 52ch; margin-top: var(--sp-3);">Elimde hep ya bir kalem ya bir fırça var; ikisi de aynı yerden, aynı ihtiyaçtan çıkıyor. Bu arşiv, o ihtiyacın on yıllık bir kaydı.</p>
         <a class="btn-line" href="hakkinda.html" style="display:inline-block; margin-top: var(--sp-3);">Daha Fazla Oku →</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="fleuron" aria-hidden="true">
+    <svg viewBox="0 0 64 16" fill="none" stroke="currentColor" stroke-width="1"><path d="M2 8 Q16 2 28 8"/><path d="M2 8 Q16 14 28 8"/><circle cx="32" cy="8" r="2.2" fill="currentColor" stroke="none"/><path d="M62 8 Q48 2 36 8"/><path d="M62 8 Q48 14 36 8"/></svg>
+  </div>
+
+  <!-- ============================================================ BENİMLE ÇALIŞIN (services teaser) -->
+  <section class="section section-tight" id="benimle-calisin">
+    <div class="container">
+      <div class="section-kicker"><span>Benimle Çalışın</span><span class="num">09</span></div>
+      <h2 class="section-title reveal">Birlikte Bir Şeyler <em>Yapalım</em></h2>
+      <p class="section-note reveal" style="margin-top:.6em; margin-bottom: var(--sp-5); max-width: 46ch;">Yazarlık, editöryel danışmanlık, illüstrasyon ve podcast iş birlikleri için ulaşabilirsiniz.</p>
+
+      <ul class="services-list reveal">
+        <li class="service-row">
+          <span class="no">01</span>
+          <div><h3>Yazarlık ve İçerik</h3></div>
+          <span class="tag">Yazı</span>
+        </li>
+        <li class="service-row">
+          <span class="no">02</span>
+          <div><h3>Editöryel Danışmanlık</h3></div>
+          <span class="tag">Editöryel</span>
+        </li>
+        <li class="service-row">
+          <span class="no">03</span>
+          <div><h3>İllüstrasyon ve Resim Siparişleri</h3></div>
+          <span class="tag">Resim</span>
+        </li>
+      </ul>
+
+      <div class="reveal" style="margin-top: var(--sp-5);">
+        <a class="btn" href="benimle-calisin.html">Tüm Hizmetleri Gör</a>
       </div>
     </div>
   </section>
@@ -337,7 +426,7 @@
   <section class="section section-tight colophon" id="iletisim">
     <div class="container">
       <div class="colophon-sheet reveal">
-      <div class="section-kicker"><span>İletişim</span><span class="num">08</span></div>
+      <div class="section-kicker"><span>İletişim</span><span class="num">10</span></div>
       <div class="colophon-grid">
         <div>
           <h2 class="colophon-title">Bir Söz <em>Bırakın</em></h2>
@@ -371,6 +460,10 @@
             <span class="small">Sergi için</span>
             <a href="resimler.html">Resimler</a>
           </div>
+          <div>
+            <span class="small">Hizmetler ve iş birlikleri için</span>
+            <a href="benimle-calisin.html">Benimle Çalışın</a>
+          </div>
         </div>
       </div>
       </div>
@@ -385,13 +478,24 @@
     <div class="footer-links">
       <a href="yazilar.html">Yazılar</a>
       <a href="siirler.html">Şiirler</a>
-      <a href="podcast.html">Podcast</a>
+      <a href="podcast.html">Podcastler</a>
       <a href="resimler.html">Resimler</a>
       <a href="kitaplar.html">Kitaplar</a>
+      <a href="calismalarim.html">Çalışmalar</a>
+      <a href="benimle-calisin.html">Benimle Çalışın</a>
     </div>
     <button class="back-top" data-back-top>Yukarı ↑</button>
   </div>
 </footer>
+
+<div class="site-search" data-search-overlay>
+  <button class="search-close" data-search-close aria-label="Kapat">Kapat ✕</button>
+  <div class="search-panel">
+    <div class="search-kicker">Arşivde Ara</div>
+    <input class="search-input" type="text" data-search-input placeholder="Bir başlık, konu ya da kelime yazın…" autocomplete="off">
+    <ul class="search-results" data-search-results></ul>
+  </div>
+</div>
 
 <script src="main.js"></script>
 </body>

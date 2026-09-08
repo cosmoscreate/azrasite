@@ -4,6 +4,106 @@
 (function () {
   "use strict";
 
+  /* ---------------- search index ---------------- */
+  var SEARCH_INDEX = [
+    { title: "Ana Sayfa", url: "index.html", cat: "Arşiv" },
+    { title: "Hakkında", url: "hakkinda.html", cat: "Arşiv" },
+    { title: "Yazılar", url: "yazilar.html", cat: "Yazılar" },
+    { title: "Mürekkebin Sabrı", url: "yazi-murekkebin-sabri.html", cat: "Yazı · Deneme" },
+    { title: "Boya ve Kelime Arasında", url: "yazi-boya-ve-kelime.html", cat: "Yazı · Sanat" },
+    { title: "Kayıp Bir Mektubun Taslağı", url: "yazi-kayip-mektup.html", cat: "Yazı · Edebiyat" },
+    { title: "Atölyede Sabah", url: "yazi-atolyede-sabah.html", cat: "Yazı · Günce" },
+    { title: "Şiirler", url: "siirler.html", cat: "Şiirler" },
+    { title: "Podcastler", url: "podcast.html", cat: "Podcast — Mürekkep Saatleri" },
+    { title: "Resimler", url: "resimler.html", cat: "Resimler — Sergi Kataloğu" },
+    { title: "Kitaplar", url: "kitaplar.html", cat: "Kitaplar — Okuma Notları" },
+    { title: "Çalışmalar", url: "calismalarim.html", cat: "Dergiler ve Projeler" },
+    { title: "Benimle Çalışın", url: "benimle-calisin.html", cat: "Hizmetler ve İş Birliği" },
+    { title: "İletişim", url: "iletisim.html", cat: "İletişim" }
+  ];
+
+  /* ---------------- search overlay ---------------- */
+  var searchToggle = document.querySelector("[data-search-toggle]");
+  var searchOverlay = document.querySelector("[data-search-overlay]");
+  if (searchToggle && searchOverlay) {
+    var searchInput = searchOverlay.querySelector("[data-search-input]");
+    var searchResults = searchOverlay.querySelector("[data-search-results]");
+    var searchCloseBtn = searchOverlay.querySelector("[data-search-close]");
+    var docRoot = document.documentElement;
+
+    function renderResults(query) {
+      var q = query.trim().toLocaleLowerCase("tr");
+      searchResults.innerHTML = "";
+      if (!q) return;
+      var matches = SEARCH_INDEX.filter(function (item) {
+        return item.title.toLocaleLowerCase("tr").indexOf(q) !== -1 ||
+          item.cat.toLocaleLowerCase("tr").indexOf(q) !== -1;
+      });
+      if (!matches.length) {
+        var empty = document.createElement("li");
+        empty.className = "search-empty";
+        empty.textContent = "Sonuç bulunamadı.";
+        searchResults.appendChild(empty);
+        return;
+      }
+      matches.forEach(function (item) {
+        var li = document.createElement("li");
+        var a = document.createElement("a");
+        a.href = item.url;
+        var t = document.createElement("span");
+        t.className = "t";
+        t.textContent = item.title;
+        var c = document.createElement("span");
+        c.className = "c";
+        c.textContent = item.cat;
+        a.appendChild(t);
+        a.appendChild(c);
+        li.appendChild(a);
+        searchResults.appendChild(li);
+      });
+    }
+
+    function openSearch() {
+      docRoot.classList.remove("nav-open");
+      docRoot.classList.add("search-open");
+      searchToggle.setAttribute("aria-expanded", "true");
+      document.body.classList.add("no-scroll");
+      if (searchInput) {
+        searchInput.value = "";
+        searchResults.innerHTML = "";
+        setTimeout(function () { searchInput.focus(); }, 50);
+      }
+    }
+    function closeSearch() {
+      docRoot.classList.remove("search-open");
+      searchToggle.setAttribute("aria-expanded", "false");
+      document.body.classList.remove("no-scroll");
+    }
+
+    searchToggle.addEventListener("click", function () {
+      if (docRoot.classList.contains("search-open")) closeSearch();
+      else openSearch();
+    });
+    if (searchCloseBtn) searchCloseBtn.addEventListener("click", closeSearch);
+    searchOverlay.addEventListener("click", function (e) {
+      if (e.target === searchOverlay) closeSearch();
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") closeSearch();
+    });
+    if (searchInput) {
+      searchInput.addEventListener("input", function () {
+        renderResults(searchInput.value);
+      });
+      searchInput.addEventListener("keydown", function (e) {
+        if (e.key === "Enter") {
+          var first = searchResults.querySelector("a");
+          if (first) window.location.href = first.getAttribute("href");
+        }
+      });
+    }
+  }
+
   /* ---------------- navigation ---------------- */
   var toggle = document.querySelector("[data-nav-toggle]");
   var root = document.documentElement;
@@ -14,6 +114,7 @@
     document.body.classList.remove("no-scroll");
   }
   function openNav() {
+    root.classList.remove("search-open");
     root.classList.add("nav-open");
     if (toggle) toggle.setAttribute("aria-expanded", "true");
     document.body.classList.add("no-scroll");
