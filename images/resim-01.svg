@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1120">
+<rect width="900" height="1120" fill="#EFE5D0"/>
+<filter id="grain0"><feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" seed="3"/><feColorMatrix type="saturate" values="0"/></filter>
+    <rect width="900" height="1120" filter="url(#grain0)" opacity="0.05"/>
+<path d="M 484.3 589.7 Q 484.3 589.7 474.9 668.2 Q 465.4 746.7 387.0 766.0 Q 308.5 785.4 226.9 769.2 Q 145.2 753.0 109.7 671.4 Q 74.3 589.7 138.4 536.8 Q 202.6 483.8 255.5 465.8 Q 308.5 447.8 402.6 424.7 Q 496.7 401.5 490.5 495.6 Z" fill="#5B1B26" opacity="0.55"/>
+<path d="M 686.1 644.5 Q 686.1 644.5 653.7 702.1 Q 621.3 759.7 563.7 792.5 Q 506.1 825.3 458.0 783.0 Q 409.8 740.8 353.5 692.6 Q 297.1 644.5 327.3 570.1 Q 357.4 495.8 431.8 475.2 Q 506.1 454.6 552.3 503.4 Q 598.5 552.1 642.3 598.3 Z" fill="#9C7A3C" opacity="0.35"/>
+<path d="M 389.5 786.8 Q 389.5 786.8 373.9 872.4 Q 358.3 958.0 272.7 1004.2 Q 187.1 1050.4 127.0 978.7 Q 66.9 907.0 8.8 846.9 Q -49.4 786.8 -11.7 706.2 Q 26.0 625.7 106.6 595.3 Q 187.1 564.9 238.4 624.6 Q 289.6 684.3 339.6 735.5 Z" fill="#6B4A2E" opacity="0.25"/>
+<path d="M 209.6 777.1 Q 199.1 758.3 230.9 803.0" stroke="#2E2115" stroke-width="6.8" fill="none" opacity="0.5" stroke-linecap="round"/>
+<path d="M 177.5 694.9 Q 259.1 673.0 368.9 706.9" stroke="#5B1B26" stroke-width="7.0" fill="none" opacity="0.5" stroke-linecap="round"/>
+<path d="M 109.9 818.2 Q 139.3 760.9 157.3 714.9" stroke="#5B1B26" stroke-width="7.9" fill="none" opacity="0.5" stroke-linecap="round"/>
+<path d="M 270.2 654.7 Q 360.1 640.3 488.6 596.3" stroke="#2E2115" stroke-width="5.4" fill="none" opacity="0.5" stroke-linecap="round"/>
+<line x1="409.0" y1="978.2" x2="499.9" y2="881.6" stroke="#2E2115" stroke-width="1" opacity="0.25"/>
+<line x1="180.6" y1="288.3" x2="292.3" y2="273.0" stroke="#2E2115" stroke-width="1" opacity="0.25"/>
+<line x1="543.7" y1="369.0" x2="545.5" y2="341.6" stroke="#2E2115" stroke-width="1" opacity="0.25"/>
+<line x1="339.7" y1="641.7" x2="359.9" y2="738.7" stroke="#2E2115" stroke-width="1" opacity="0.25"/>
+<rect width="900" height="1120" fill="url(#vg0)"/>
+    <defs><radialGradient id="vg0" cx="50%" cy="45%" r="75%"><stop offset="60%" stop-color="#000" stop-opacity="0"/><stop offset="100%" stop-color="#000" stop-opacity="0.14"/></radialGradient></defs>
+</svg>

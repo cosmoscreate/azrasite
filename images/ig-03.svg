@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
+<rect width="500" height="500" fill="#6B4A2E"/>
+<path d="M 456.0 250.0 Q 456.0 250.0 401.6 310.9 Q 347.1 371.8 278.4 399.1 Q 209.7 426.5 147.6 377.8 Q 85.5 329.2 108.0 260.8 Q 130.5 192.5 177.0 163.0 Q 223.4 133.5 289.7 125.3 Q 355.9 117.2 405.9 183.6 Z" fill="#EFE5D0" opacity="0.55"/>
+<line x1="432.0" y1="233.4" x2="493.3" y2="299.2" stroke="#2E2115" stroke-width="1.2" opacity="0.3"/>
+<line x1="141.7" y1="89.7" x2="170.4" y2="-16.2" stroke="#2E2115" stroke-width="1.2" opacity="0.3"/>
+<line x1="205.2" y1="398.1" x2="309.4" y2="291.3" stroke="#2E2115" stroke-width="1.2" opacity="0.3"/>
+</svg>

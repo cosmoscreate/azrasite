@@ -1,5 +1,5 @@
-/* AZRA — shared interactions: navigation, scroll reveal, poem overlay,
-   custom audio player, contact form. Kept dependency-free on purpose. */
+/* AZRA BOSTANCI — shared interactions: navigation, scroll reveal, poem overlay,
+   custom audio player, paintings lightbox, contact form. Dependency-free. */
 
 (function () {
   "use strict";
@@ -31,7 +31,6 @@
     if (e.key === "Escape") closeNav();
   });
 
-  /* mark the current page in the nav */
   var here = (location.pathname.split("/").pop() || "index.html").toLowerCase();
   document.querySelectorAll(".site-nav-list a[href]").forEach(function (a) {
     var target = a.getAttribute("href").toLowerCase();
@@ -68,33 +67,67 @@
 
   /* ---------------- poem overlay (Şiirler) ---------------- */
   var poemTiles = document.querySelectorAll("[data-poem-open]");
-  var overlay = document.querySelector("[data-poem-overlay]");
-  if (overlay && poemTiles.length) {
-    var oNo = overlay.querySelector("[data-poem-no]");
-    var oTitle = overlay.querySelector("[data-poem-title]");
-    var oBody = overlay.querySelector("[data-poem-body]");
-    var closeBtn = overlay.querySelector("[data-poem-close]");
+  var poemOverlay = document.querySelector("[data-poem-overlay]");
+  if (poemOverlay && poemTiles.length) {
+    var oNo = poemOverlay.querySelector("[data-poem-no]");
+    var oTitle = poemOverlay.querySelector("[data-poem-title]");
+    var oBody = poemOverlay.querySelector("[data-poem-body]");
+    var poemCloseBtn = poemOverlay.querySelector("[data-poem-close]");
 
     function openPoem(tile) {
       oNo.textContent = tile.getAttribute("data-no");
       oTitle.textContent = tile.getAttribute("data-title");
       oBody.textContent = tile.getAttribute("data-body");
-      overlay.classList.add("is-open");
+      poemOverlay.classList.add("is-open");
       document.body.classList.add("no-scroll");
     }
     function closePoem() {
-      overlay.classList.remove("is-open");
+      poemOverlay.classList.remove("is-open");
       document.body.classList.remove("no-scroll");
     }
     poemTiles.forEach(function (tile) {
       tile.addEventListener("click", function () { openPoem(tile); });
     });
-    if (closeBtn) closeBtn.addEventListener("click", closePoem);
-    overlay.addEventListener("click", function (e) {
-      if (e.target === overlay) closePoem();
+    if (poemCloseBtn) poemCloseBtn.addEventListener("click", closePoem);
+    poemOverlay.addEventListener("click", function (e) {
+      if (e.target === poemOverlay) closePoem();
     });
     document.addEventListener("keydown", function (e) {
       if (e.key === "Escape") closePoem();
+    });
+  }
+
+  /* ---------------- paintings lightbox (Resimler) ---------------- */
+  var galleryItems = document.querySelectorAll("[data-gallery-open]");
+  var lightbox = document.querySelector("[data-lightbox]");
+  if (lightbox && galleryItems.length) {
+    var lbImg = lightbox.querySelector("[data-lightbox-img]");
+    var lbTitle = lightbox.querySelector("[data-lightbox-title]");
+    var lbMeta = lightbox.querySelector("[data-lightbox-meta]");
+    var lbCloseBtn = lightbox.querySelector("[data-lightbox-close]");
+
+    function openLightbox(item) {
+      var img = item.querySelector("img");
+      lbImg.src = img.getAttribute("src");
+      lbImg.alt = img.getAttribute("alt") || "";
+      lbTitle.textContent = item.getAttribute("data-title") || "";
+      lbMeta.textContent = item.getAttribute("data-meta") || "";
+      lightbox.classList.add("is-open");
+      document.body.classList.add("no-scroll");
+    }
+    function closeLightbox() {
+      lightbox.classList.remove("is-open");
+      document.body.classList.remove("no-scroll");
+    }
+    galleryItems.forEach(function (item) {
+      item.addEventListener("click", function () { openLightbox(item); });
+    });
+    if (lbCloseBtn) lbCloseBtn.addEventListener("click", closeLightbox);
+    lightbox.addEventListener("click", function (e) {
+      if (e.target === lightbox) closeLightbox();
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") closeLightbox();
     });
   }
 
