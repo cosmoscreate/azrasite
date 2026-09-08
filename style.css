@@ -570,6 +570,10 @@ body::after{
 }
 .reader-nav:hover{ background: var(--lit); color: var(--env-1); }
 .reader-nav:disabled{ opacity:.25; pointer-events:none; }
+.reader-foot{ flex-shrink:0; text-align:center; padding: var(--sp-2) var(--sp-4) var(--sp-3); border-top: 1px solid var(--env-line); }
+.reader-foot p{ font-family: var(--font-sans); font-size:.66rem; letter-spacing:.02em; color: var(--lit-faint); }
+.reader-foot a{ color: var(--parchment); border-bottom: 1px dashed var(--parchment); }
+.reader-foot a:hover{ color: var(--lit); border-color: var(--lit); }
 @media (max-width: 700px){
   .reader-head{ padding: var(--sp-2) var(--sp-3); flex-wrap:wrap; }
   .reader-stage{ padding: var(--sp-2); gap: var(--sp-2); }

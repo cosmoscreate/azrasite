@@ -234,12 +234,12 @@
 
   /* ---------------- magazine reader (Çalışmalar) ---------------- */
   var MAGAZINES = {
-    "pusula-2": { title: "Pusula", issue: "İkinci Sayı — Nisan 2025", pages: 24 },
-    "pusula-3": { title: "Pusula", issue: "Üçüncü Sayı — Mayıs 2025", pages: 24 },
-    "pusula-4": { title: "Pusula", issue: "Dördüncü Sayı", pages: 32 },
-    "maypa-1": { title: "Maypa", issue: "1. Sayı — Ağustos 2026", pages: 34 },
-    "dusart-7": { title: "DüşArt", issue: "7. Sayı — Aralık 2024", pages: 64 },
-    "dusart-9": { title: "DüşArt", issue: "9. Sayı — Şubat 2025", pages: 58 }
+    "pusula-2": { title: "Pusula", issue: "İkinci Sayı — Nisan 2025", pages: 24, link: "https://online.fliphtml5.com/ngrqj/vgvv/#p=1" },
+    "pusula-3": { title: "Pusula", issue: "Üçüncü Sayı — Mayıs 2025", pages: 24, link: "https://online.fliphtml5.com/ngrqj/xjef/#p=1" },
+    "pusula-4": { title: "Pusula", issue: "Dördüncü Sayı — Kasım 2025", pages: 32, link: "https://online.fliphtml5.com/ngrqj/phie/" },
+    "maypa-1": { title: "Maypa", issue: "1. Sayı — Ağustos 2026", pages: 34, link: "https://online.fliphtml5.com/maypascam/fbcf/#p=1" },
+    "dusart-7": { title: "DüşArt", issue: "7. Sayı — Aralık 2024", pages: 64, link: "https://xn--dsart-kva.com/themes/ripple/sayi7.pdf" },
+    "dusart-9": { title: "DüşArt", issue: "9. Sayı — Şubat 2025", pages: 58, link: "https://xn--dsart-kva.com/themes/ripple/sayi9.pdf" }
   };
 
   var readerTriggers = document.querySelectorAll("[data-reader-open]");
@@ -253,6 +253,7 @@
     var rPrev = reader.querySelector("[data-reader-prev]");
     var rNext = reader.querySelector("[data-reader-next]");
     var rClose = reader.querySelector("[data-reader-close]");
+    var rSource = reader.querySelector("[data-reader-source]");
 
     var currentSlug = null;
     var currentPage = 1;
@@ -286,6 +287,7 @@
       rMag.textContent = mag.title;
       rIssue.textContent = mag.issue;
       rTotal.textContent = totalPages;
+      if (rSource) rSource.href = mag.link || "#";
       renderReaderPage();
       reader.classList.add("is-open");
       document.body.classList.add("no-scroll");
