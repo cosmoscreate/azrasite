@@ -170,6 +170,8 @@ body::after{
   display:block; font-family: var(--font-sans); font-style: normal; font-size: .56rem;
   letter-spacing:.08em; text-transform:uppercase; color: var(--lit-faint); margin-top:3px;
 }
+.brand-name:hover{ color: var(--parchment); }
+.brand small a:hover{ color: var(--lit); }
 .header-actions{ display:flex; align-items:center; gap: var(--sp-4); }
 .search-toggle{ width:30px; height:30px; display:flex; align-items:center; justify-content:center; color: var(--lit); flex-shrink:0; transition: color .2s var(--ease); }
 .search-toggle svg{ width:18px; height:18px; }
