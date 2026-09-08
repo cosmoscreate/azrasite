@@ -3,10 +3,10 @@
 <filter id="g2"><feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" seed="22"/><feColorMatrix type="saturate" values="0"/></filter>
 <rect width="900" height="1120" filter="url(#g2)" opacity="0.05"/>
 <rect x="60" y="60" width="780" height="1000" fill="none" stroke="#D8C4A9" stroke-width="1.5" opacity="0.5"/>
-<text x="450" y="180" text-anchor="middle" font-family="Georgia, serif" font-style="italic" font-size="94" fill="#F8F0E3">Yankı</text>
-<text x="450" y="230" text-anchor="middle" font-family="Georgia, serif" font-size="26" letter-spacing="8" fill="#D8C4A9">SANAT DERGİSİ</text>
+<text x="450" y="180" text-anchor="middle" font-family="Georgia, serif" font-style="italic" font-size="72" fill="#F8F0E3">Dergi Adı</text>
+<text x="450" y="230" text-anchor="middle" font-family="Georgia, serif" font-size="24" letter-spacing="6" fill="#D8C4A9">YER TUTUCU</text>
 <circle cx="450" cy="620" r="230" fill="#7C2836" opacity="0.45"/>
 <circle cx="450" cy="620" r="150" fill="none" stroke="#F8F0E3" stroke-width="1" opacity="0.4"/>
 <circle cx="450" cy="620" r="80" fill="#C7A876" opacity="0.35"/>
-<text x="450" y="960" text-anchor="middle" font-family="Georgia, serif" font-size="26" fill="#D8C4A9">Sayı 04 — Kapak İllüstrasyonu</text>
+<text x="450" y="960" text-anchor="middle" font-family="Georgia, serif" font-size="24" fill="#D8C4A9">Sayı -- — Yer Tutucu Kapak</text>
 </svg>
