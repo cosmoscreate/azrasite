@@ -535,29 +535,24 @@ body::after{
 
 /* ================================================================ BOOKS — a shelf against a dark wall */
 .shelf{ border-top: 2px solid var(--lit-soft); }
-.shelf-row{ display:grid; grid-template-columns: 78px 1fr auto; gap: var(--sp-4); align-items:center; padding: var(--sp-4) 0; border-bottom: 1px dashed var(--env-line-strong); }
-.spine{ height: 104px; width: 68px; background: var(--parchment-deep); display:flex; align-items:center; justify-content:center; position:relative; transform: rotate(-1.4deg); box-shadow: 4px 5px 0 rgba(0,0,0,.4); justify-self:center; overflow:hidden; }
+.shelf-row{ display:grid; grid-template-columns: 210px 1fr auto; gap: var(--sp-5); align-items:center; padding: var(--sp-5) 0; border-bottom: 1px dashed var(--env-line-strong); }
+.spine{ height: 315px; width: 210px; background: var(--parchment-deep); display:flex; align-items:center; justify-content:center; position:relative; transform: rotate(-1.2deg); box-shadow: 8px 12px 0 rgba(0,0,0,.4), 0 -30px 60px -30px var(--glow); justify-self:center; overflow:hidden; }
 .spine img{ width:100%; height:100%; object-fit:cover; display:block; }
-.card-buy{ display:inline-block; margin-top: var(--sp-2); }
-.shelf-row:nth-child(even) .spine{ transform: rotate(1.2deg); }
+.card-buy{ display:inline-block; margin-top: var(--sp-3); }
+.shelf-row:nth-child(even) .spine{ transform: rotate(1deg); }
 .spine.tone-2{ background: var(--parchment); }
 .spine.tone-3{ background: var(--paper-2); }
 .spine span{ writing-mode: vertical-rl; transform: rotate(180deg); font-family: var(--font-display); font-style:italic; font-size:.76rem; color: var(--ink); padding:.5em 0; }
-.card-title{ font-family: var(--font-display); font-style:italic; font-size: clamp(1.15rem,2.4vw,1.55rem); color: var(--lit); }
+.card-title{ font-family: var(--font-display); font-style:italic; font-size: clamp(1.4rem,3vw,1.9rem); color: var(--lit); }
 .card-author{ font-family: var(--font-sans); font-size:.66rem; letter-spacing:.04em; text-transform:uppercase; color: var(--lit-faint); margin-top:.3em; }
-.card-note{ margin-top: var(--sp-1); font-family: var(--font-serif); color: var(--lit-soft); max-width: 60ch; }
-.card-meta{ font-family: var(--font-sans); font-size:.66rem; letter-spacing:.02em; text-transform:uppercase; color: var(--lit-faint); text-align:right; white-space:nowrap; }
-@media (max-width: 700px){ .shelf-row{ grid-template-columns: 52px 1fr; } .card-meta{ grid-column: 1/-1; text-align:left; } .spine{ height:80px; width:46px; } }
-
-.ig-strip{ margin-top: var(--sp-6); }
-.ig-grid{ display:grid; grid-template-columns: repeat(4,1fr); gap: var(--sp-3); }
-.ig-card{ background: var(--paper-2); overflow:hidden; box-shadow: 5px 6px 0 rgba(0,0,0,.4); }
-.ig-card img{ width:100%; aspect-ratio:1; object-fit:cover; }
-.ig-card .body{ padding: var(--sp-2); }
-.ig-card .book{ font-family: var(--font-display); font-style:italic; font-size:.92rem; color: var(--ink); }
-.ig-card .note{ font-family: var(--font-hand); font-size: .98rem; color: var(--ink-faint); margin-top:.3em; }
-.ig-card .meta{ margin-top:.5em; display:flex; justify-content:space-between; font-family: var(--font-sans); font-size:.58rem; letter-spacing:.02em; text-transform:uppercase; color: var(--ink-faint); }
-@media (max-width: 780px){ .ig-grid{ grid-template-columns: repeat(2,1fr); } }
+.card-note{ margin-top: var(--sp-2); font-family: var(--font-serif); font-size:1.05rem; color: var(--lit-soft); max-width: 60ch; }
+.card-meta{ font-family: var(--font-sans); font-size:.66rem; letter-spacing:.02em; text-transform:uppercase; color: var(--lit-faint); text-align:right; white-space:nowrap; align-self:start; }
+@media (max-width: 780px){
+  .shelf-row{ grid-template-columns: 1fr; text-align:center; }
+  .card-meta{ grid-column: 1/-1; text-align:center; }
+  .card-note{ max-width: 100%; }
+  .spine{ height: 270px; width: 180px; }
+}
 
 /* ================================================================ THEMES / PULL QUOTE */
 .theme-row{ display:flex; flex-wrap:wrap; gap: 0; border-top: 1px solid var(--env-line); border-left: 1px solid var(--env-line); }
