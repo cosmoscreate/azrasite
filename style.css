@@ -487,11 +487,15 @@ body::after{
 .log-reel{ width:150px; aspect-ratio:1; background: var(--parchment-2); position:relative; display:flex; align-items:center; justify-content:center; overflow:hidden; box-shadow: 6px 8px 0 rgba(0,0,0,.4), 0 -30px 60px -30px var(--glow); }
 .log-reel::before{ content:""; position:absolute; inset:14%; border:1px dashed var(--line-strong); border-radius:50%; }
 .log-reel svg{ width:46%; color: var(--ink); position:relative; }
+.log-reel.has-art::before{ display:none; }
+.log-reel.has-art img{ width:100%; height:100%; object-fit:cover; display:block; }
 .log-body > div{ min-width:0; }
 .log-head{ display:flex; justify-content:space-between; gap: var(--sp-3); flex-wrap:wrap; }
 .log-title{ font-family: var(--font-display); font-style:italic; font-size: clamp(1.3rem,2.6vw,1.85rem); color: var(--lit); }
 .log-meta{ font-family: var(--font-sans); font-size:.66rem; letter-spacing:.04em; text-transform:uppercase; color: var(--lit-faint); white-space:nowrap; }
 .log-desc{ margin-top: var(--sp-2); color: var(--lit-faint); font-family: var(--font-serif); font-size: 1.03rem; max-width: 62ch; }
+.spotify-embed{ margin-top: var(--sp-3); border-radius:12px; overflow:hidden; }
+.spotify-embed iframe{ display:block; }
 
 .player{ margin-top: var(--sp-3); display:flex; align-items:center; gap: var(--sp-3); background: var(--paper-2); padding: var(--sp-2) var(--sp-3); box-shadow: 4px 6px 0 rgba(0,0,0,.35), 0 -20px 40px -20px var(--glow); }
 .player-btn{ width:36px; height:36px; border-radius:50%; border:1px solid var(--ink); color: var(--ink); display:flex; align-items:center; justify-content:center; flex-shrink:0; transition: background .25s, color .25s; }
