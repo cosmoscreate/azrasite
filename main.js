@@ -420,23 +420,54 @@
     });
   });
 
-  /* ---------------- contact form → mailto ---------------- */
+  /* ---------------- contact form → FormSubmit ---------------- */
   var form = document.querySelector("[data-contact-form]");
   if (form) {
+    var formStatus = form.querySelector("[data-form-status]");
+    var formBtn = form.querySelector('button[type="submit"]');
     form.addEventListener("submit", function (e) {
       e.preventDefault();
+      var to = form.getAttribute("data-to") || "";
+      if (!to) return;
       var name = form.querySelector("#name");
       var email = form.querySelector("#email");
       var message = form.querySelector("#message");
-      var to = form.getAttribute("data-to") || "";
-      var subject = encodeURIComponent("İletişim — " + (name ? name.value : ""));
-      var body = encodeURIComponent(
-        (message ? message.value : "") +
-          "\n\n—\n" +
-          (name ? name.value : "") +
-          (email ? "\n" + email.value : "")
-      );
-      window.location.href = "mailto:" + to + "?subject=" + subject + "&body=" + body;
+      if (formBtn) formBtn.disabled = true;
+      if (formStatus) {
+        formStatus.removeAttribute("data-state");
+        formStatus.textContent = "Gönderiliyor…";
+      }
+      fetch("https://formsubmit.co/ajax/" + encodeURIComponent(to), {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "Accept": "application/json" },
+        body: JSON.stringify({
+          name: name ? name.value : "",
+          email: email ? email.value : "",
+          message: message ? message.value : "",
+          _subject: "Site üzerinden yeni bir mesaj",
+          _template: "table"
+        })
+      })
+        .then(function (res) {
+          if (!res.ok) throw new Error("request failed");
+          return res.json();
+        })
+        .then(function () {
+          if (formBtn) formBtn.disabled = false;
+          if (formStatus) {
+            formStatus.textContent = "Mesajınız gönderildi, teşekkürler.";
+            formStatus.setAttribute("data-state", "ok");
+          }
+          form.reset();
+        })
+        .catch(function () {
+          if (formBtn) formBtn.disabled = false;
+          if (formStatus) {
+            formStatus.innerHTML =
+              'Bir şeyler ters gitti — lütfen doğrudan <a href="mailto:' + to + '">' + to + "</a> adresine yazın.";
+            formStatus.setAttribute("data-state", "err");
+          }
+        });
     });
   }
 })();

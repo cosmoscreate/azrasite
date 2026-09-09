@@ -657,6 +657,11 @@ body::after{
 .field label{ display:block; font-family: var(--font-sans); font-size:.64rem; letter-spacing:.05em; text-transform:uppercase; color: var(--ink-faint); margin-bottom:.5em; }
 .field input, .field textarea{ width:100%; background:transparent; border:none; border-bottom: 1px dashed var(--line-strong); color: var(--ink); font-family: var(--font-serif); font-size: 1.1rem; padding:.5em 0; transition: border-color .25s; }
 .field input:focus, .field textarea:focus{ outline:none; border-color: var(--ink); border-bottom-style: solid; }
+.form-status{ min-height: 1.2em; font-family: var(--font-sans); font-size:.7rem; letter-spacing:.02em; color: var(--ink-faint); }
+.form-status[data-state="ok"]{ color: var(--ink-soft); }
+.form-status[data-state="err"]{ color: var(--ink); }
+.form-status a{ text-decoration: underline; }
+.imprint-form button[disabled]{ opacity:.55; cursor:default; }
 .field textarea{ resize:vertical; min-height:84px; }
 .imprint-direct{ display:flex; flex-direction:column; gap: var(--sp-3); justify-content:center; border-left: 1px solid var(--line); padding-left: var(--sp-5); }
 .imprint-direct a{ font-family: var(--font-display); font-style:italic; font-size: clamp(1.25rem,2.6vw,1.7rem); border-bottom:1px solid transparent; width:fit-content; color: var(--ink); }
