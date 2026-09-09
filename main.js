@@ -385,6 +385,41 @@
     }
   });
 
+  /* ---------------- copy email button ---------------- */
+  function fallbackCopy(text) {
+    var ta = document.createElement("textarea");
+    ta.value = text;
+    ta.style.position = "fixed";
+    ta.style.opacity = "0";
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand("copy"); } catch (e) { /* no-op */ }
+    document.body.removeChild(ta);
+  }
+  document.querySelectorAll("[data-copy-email]").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var email = btn.getAttribute("data-copy-email");
+      var markCopied = function () {
+        btn.classList.add("is-copied");
+        btn.setAttribute("aria-label", "Kopyalandı");
+        clearTimeout(btn._copyTimeout);
+        btn._copyTimeout = setTimeout(function () {
+          btn.classList.remove("is-copied");
+          btn.setAttribute("aria-label", "E-posta adresini kopyala");
+        }, 1800);
+      };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(email).then(markCopied, function () {
+          fallbackCopy(email);
+          markCopied();
+        });
+      } else {
+        fallbackCopy(email);
+        markCopied();
+      }
+    });
+  });
+
   /* ---------------- contact form → mailto ---------------- */
   var form = document.querySelector("[data-contact-form]");
   if (form) {

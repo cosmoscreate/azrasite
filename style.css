@@ -256,6 +256,15 @@ body::after{
 }
 .site-nav-foot a{ border-bottom: 1px dashed transparent; }
 .site-nav-foot a:hover{ color: var(--lit); border-color: var(--lit); }
+
+.email-copy{ display:inline-flex; align-items:center; gap:.5em; }
+.copy-btn{ position:relative; width:20px; height:20px; flex-shrink:0; display:inline-flex; align-items:center; justify-content:center; color:inherit; opacity:.6; transition: opacity .2s var(--ease); }
+.copy-btn:hover{ opacity:1; }
+.copy-btn svg{ width:13px; height:13px; position:absolute; top:50%; left:50%; transform:translate(-50%,-50%) scale(1); transition: opacity .2s var(--ease), transform .2s var(--ease); }
+.copy-btn .icon-check{ opacity:0; transform:translate(-50%,-50%) scale(.5); color: var(--parchment); }
+.copy-btn.is-copied{ opacity:1; }
+.copy-btn.is-copied .icon-copy{ opacity:0; transform:translate(-50%,-50%) scale(.5); }
+.copy-btn.is-copied .icon-check{ opacity:1; transform:translate(-50%,-50%) scale(1); }
 @media (max-width: 640px){ .site-nav-head{ top: 84px; } .site-nav-list a{ font-size: clamp(1.3rem,7vw,2rem); } }
 
 /* ================================================================ MASTHEAD — engraved lettering on dark wood, lit from one side */
